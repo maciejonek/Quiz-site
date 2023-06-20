@@ -1,0 +1,56 @@
+html,body{
+    height: 100%;
+    width: 100%;
+}
+
+.menu{
+    position: absolute;
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+    padding: 1%;
+    width: 100%;
+    background-color: #623B1C;
+    flex: 1;
+}
+.menu > *{
+    color: aqua;
+    flex: 3;
+}
+.menu:nth-child(odd){
+    flex: 1;
+}
+#loginBox{
+    display: flex;
+    flex-direction: row;
+    height: 100%;
+    width: 100%;
+}
+#loginForm{
+    display: flex;
+    flex: 1;
+    background-color: beige;
+    justify-content: center;
+}
+#registerForm{
+    display: flex;
+    flex: 1;
+    background-color: burlywood;
+    justify-content: center;
+}
+form{
+    align-self: center;
+    width: 100%;
+}
+table{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+input{
+    border: 0;
+    background-color: gainsboro;
+    width: 100%;
+    text-align: center;
+    justify-content: center;
+}
