@@ -32,11 +32,10 @@
     }
         if(checkVarLogin()){
             $query = "SELECT * FROM users WHERE login='{$_POST['login']}' AND haslo='{$_POST['password']}';";
-            $connection = mysqli_connect('localhost','root','root','ProjektPHP');
             $result = mysqli_query(connection(),$query);
             if(mysqli_num_rows($result)!=0){
                 $row = mysqli_fetch_array($result);
-                $user = new \Classes\User($row['id'],$row['login'],$row['password'],$row['id_rola']);
+                $user = new \Classes\User($row['id'],$row['login'],$row['password'],$row['id_rola'],$row['obrazek']);
                 $_SESSION['user'] = serialize($user);
                 header('Location: logoutPage.php');
                 die();
@@ -48,17 +47,14 @@
                 $query = "SELECT * FROM users WHERE login='{$_POST['loginRegister']}';";
                 $result =  mysqli_query(connection(),$query);
                 if(mysqli_num_rows($result)==0){
-
                     $query = "INSERT INTO users(login,haslo,id_rola) VALUES ('{$_POST['loginRegister']}','{$_POST['passwordRegister']}',3);";
                     mysqli_query(connection(),$query);
-
-                    $query = "SELECT * FROM users WHERE login='{$_POST['loginRegister']}' AND haslo='{$_POST['loginRegister']}';";
+                    $query = "SELECT * FROM users WHERE login='{$_POST['loginRegister']}' AND haslo='{$_POST['passwordRegister']}';";
                     $result = mysqli_query(connection(),$query);
                     $row = mysqli_fetch_array($result);
-                    $user = new \Classes\User($row['id'],$row['login'],$row['password'],$row['id_rola']);
+                    $user = new \Classes\User($row['id'],$row['login'],$row['password'],$row['id_rola'],$row['obrazek']);
                     $_SESSION['user'] = serialize($user);
                     header('Location: logoutPage.php');
-                    die();
                 }
                 else echo "Nazwa użytkownika zajęta";
             }

@@ -4,21 +4,24 @@ namespace Classes;
 
 class User
 {
-    public $id,$login,$password,$role;
+    public $id,$login,$password,$role,$picture;
 
     /**
      * @param $id
      * @param $login
      * @param $password
-     * @param $rola
+     * @param $role
+     * @param $picture
      */
-    public function __construct($id, $login, $password, $rola)
+    public function __construct($id, $login, $password, $role, $picture)
     {
         $this->id = $id;
         $this->login = $login;
         $this->password = $password;
-        $this->role = $rola;
+        $this->role = $role;
+        $this->picture = $picture;
     }
+
 
     /**
      * @return mixed

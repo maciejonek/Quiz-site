@@ -49,3 +49,16 @@ html, body {
     background-color: #F6EDDD;
     flex: 1;
 }
+
+a:link, a:visited{
+    color:green;
+    text-decoration: none;
+    font-size: xx-large;
+}
+a#ProfileLink{
+    display: block;
+}
+
+p#ProfileName{
+    margin: 0;
+}

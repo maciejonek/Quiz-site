@@ -13,7 +13,9 @@
 <body>
     <div class="box">
         <div class="header">
-            <!-- <h1>hjvhjvvhj</h1> -->
+            <?php
+                include '../User/headerProfile.php';
+            ?>
         </div>
         <div class="section">
             <?php
