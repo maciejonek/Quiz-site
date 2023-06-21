@@ -11,6 +11,9 @@ $result = mysqli_query($connection,$query);
     <title>Kategorie</title>
 </head>
 <body>
+    <?php
+    include '../HTML/menu.html';
+    ?>
         <ul>
             <?php
             while($row = mysqli_fetch_array($result)){

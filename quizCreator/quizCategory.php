@@ -6,6 +6,9 @@
     <title>Wybierz kategorie</title>
 </head>
 <body>
+    <?php
+    include '../HTML/menu.html';
+    ?>
     <form action="quizCategory.php" method="post">
         <input type="text" name="quizName" placeholder="Nazwa Quizu">
         <select name="category" id="">

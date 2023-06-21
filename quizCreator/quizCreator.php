@@ -16,6 +16,9 @@ session_start();
     <title>Kreator</title>
 </head>
 <body>
+    <?php
+    include '../HTML/menu.html';
+    ?>
     <form action="quizUpload.php">
         <input type="submit" value="Zapisz Quiz">
     </form>

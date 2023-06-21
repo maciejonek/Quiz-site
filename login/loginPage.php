@@ -21,15 +21,11 @@
     <title>Login</title>
 </head>
 <body>
-    <div class="menu">
-        <span id=""><a href="../index.php">Strona główna</a></span>
-        <span id="QuizOfTheDay">Quiz dnia</span>
-        <span id="Arcade">Arcade</span>
-        <span><a href="../quizCreator/quizCategory.php">Kreator Quiz'ów</a></span>
-        <span id="login"><a href="loginPage.php">Logowanie</a></span>
-    </div>
     <?php
-    if(!isset($_SESSION['user'])) include '..'.DIRECTORY_SEPARATOR.'HTML' . DIRECTORY_SEPARATOR . 'loginForms.html';
+    include '../HTML/menu.html';
+    ?>
+    <?php
+    if(!isset($_SESSION['user'])) include 'loginForms.html';
     else{
         header('Location: logoutPage.php');
         die();

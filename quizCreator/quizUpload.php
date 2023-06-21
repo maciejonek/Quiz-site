@@ -12,9 +12,12 @@ session_start();
     <title>Dodano!</title>
 </head>
 <body>
+    <?php
+    include '../HTML/menu.html';
+    ?>
     <div>
         <p>Twój quiz został dodany!</p>
-        <form action="../index.php" method="post">
+        <form action="../index/index.php" method="post">
             <input type="submit" value="Wróć na stronę główną">
         </form>
     </div>
