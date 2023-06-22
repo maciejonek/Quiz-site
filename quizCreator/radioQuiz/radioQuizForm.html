@@ -1,40 +1,52 @@
 <form action="quizCreator.php" method="post">
         <table>
-            <tr>
+            <!-- <tr>
                 <td></td>
                 <td>Poprawana odpowiedz</td>
-            </tr>
+            </tr> -->
             <tr>
-                <td>
+                <td class="colorBorder">
                     <input type="text" name="question" placeholder="Pytanie">
                 </td>
             </tr>
             <tr>
-                <td>
+                <td class="colorBorder">
                     <input type="text" name="answer1" placeholder="Odpowiedź 1">
-                    <input type="radio" name="correct" value="1">
+                </td>
+                <td class="colorBorder" style="margin-bottom: 50px;"> 
+                    <input type="radio" id="1" class="radio" name="correct" value="1">
+                    <label for="1" class="radioLebel" style="position: relative; ">Poprawna</label>
                 </td>
             </tr>
             <tr>
-                <td>
+                <td class="colorBorder">
                     <input type="text" name="answer2" placeholder="Odpowiedź 2">
-                    <input type="radio" name="correct" value="2">
+                </td>
+                <td class="colorBorder" style="margin-bottom: 50px;">
+                    <input type="radio" id="2" class="radio" name="correct" value="2">
+                    <label for="2" class="radioLebel" style="position: relative;">Poprawna</label>
                 </td>
             </tr>
             <tr>
-                <td>
+                <td class="colorBorder">
                     <input type="text" name="answer3" placeholder="Odpowiedź 3">
-                    <input type="radio" name="correct" value="3">
+                </td>
+                <td class="colorBorder" style="margin-bottom: 50px;">
+                    <input type="radio" id="3" class="radio" name="correct" value="3">
+                    <label for="3" class="radioLebel" style="position: relative;">Poprawna</label>
                 </td>
             </tr>
             <tr>
-                <td>
+                <td class="colorBorder">
                     <input type="text" name="answer4" placeholder="Odpowiedź 4">
-                    <input type="radio" name="correct" value="4">
+                </td>
+                <td class="colorBorder" style="margin-bottom: 50px;">
+                    <input type="radio" id="4" class="radio" name="correct" value="4">
+                    <label for="4" class="radioLebel" style="position: relative;">Poprawna</label>
                 </td>
             </tr>
             <tr>
-                <td><input type="submit" value="Dodaj"></td>
+                <td class="colorBorder"><input type="submit" value="Dodaj"></td>
             </tr>
         </table>
 

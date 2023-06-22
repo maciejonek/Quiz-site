@@ -1,24 +1,34 @@
+<?php
+include '../Operations/classLoader.php';
+include '../Operations/dbFunctionsShortcut.php';
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Rubik+Iso&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../CSS/style1.css">
+    <link rel="stylesheet" href="../CSS/border.css">
     <title>Wybierz kategorie</title>
 
 </head>
 <body>
     <div class="box">
         <div class="header">
-            <!-- <h1>hjvhjvvhj</h1> -->
+            <?php
+            include '../User/headerProfile.php';
+            ?>
         </div>
         <div class="section">
             <?php
             include '../HTML/menu.html';
+            include '../Operations/checkLogin.php';
             ?>
             <div class="info">
                 <form action="quizCategory.php" method="post">
-                    <input type="text" name="quizName" placeholder="Nazwa Quizu">
+                    <div class="colorBorder">
+                    <input type="text" name="quizName"  placeholder="Nazwa Quizu">
                     <select name="category" id="">
                         <?php
                         session_start();
@@ -30,7 +40,8 @@
                         }
                         ?>
                     </select>
-                    <p><input type="submit" value="Dalej"></p>
+                    </div>
+                    <p><input type="submit" class="colorBorder submit" value="Dalej"></p>
                 </form>
                 <?php
                 if(!empty($_POST['quizName'])) {

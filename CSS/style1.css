@@ -1,8 +1,32 @@
+* {
+    font-family: 'Rubik Iso', cursive;
+    font-size: xx-large;
+    color: #FB2576;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus, 
+input:-webkit-autofill:active{
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: #FB2576;
+    transition: background-color 5000s ease-in-out 0s;
+    box-shadow: inset 0 0 20px 20px #23232329;
+}
+
 html, body {
     height: 100%;
     width: 100%;
     padding: 0;
     margin: 0;
+    background-color: var(--background);
+}
+table{
+    width: 100%;
+    margin-bottom: 100px;
+}
+tr,td{
+    margin-bottom: 100px;
 }
 .box{
     height: 100%;
@@ -11,54 +35,249 @@ html, body {
     margin: 0;
     display: flex;
     flex-direction: column;
-
+    background-color: var(--background);
 }
 .header{
-    background-color: #49260A;
-    flex: 2;
+    /* background-color: #49260A; */
+    margin: 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: stretch;
 }
-
 .section{
-    flex: 10;
+    width: 100%;
+    flex-grow: 10;
     display: flex;
     flex-direction: column;
     
 }
 .menu{
+    font-family: 'Rubik Iso', cursive;
     display: flex;
     flex-direction: row;
     align-content: center;
     padding: 1%;
-    background-color: #623B1C;
-    flex: 1;
+    /* background-color: #623B1C; */
 }
 .menu > *{
-    color: aqua;
-    flex: 3;
+    flex-grow: 1;
 }
-.menu:nth-child(odd){
-    flex: 1;
-}
-.info{
-    background-color: #CAAD8C;
-    flex: 15;
+.menu > *:hover{
+    text-decoration:underline;
 }
 
+.info{
+    background-color: var(--background);
+    flex: 15;
+    display: block;
+    margin: auto;
+    width: 60%;
+    /* border: 3px solid #73AD21; */
+    /* padding: 10px; */
+}
+ul{
+    display: block;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    margin: 0;
+}
+li {
+    display: flex;
+    position: relative;
+    list-style-type: none;
+    display: block;
+    margin: 0 auto;
+    height: 100%;
+    max-width: 100%;
+    text-align: center;
+}
+.submit{
+    display: block;
+    background-color: #FFE79B;
+    border: 3px solid #DD58D6;
+    width: 100%;
+    margin-top: 5px;
+}
+#returnButton{
+    background-color: #FFE79B;
+    border: 3px solid #DD58D6;
+}
 
 .footer{
-    background-color: #F6EDDD;
-    flex: 1;
+    /* background-color: #F6EDDD; */
+    flex-grow: 2;
 }
 
 a:link, a:visited{
-    color:green;
+    color:#FB2576;
     text-decoration: none;
     font-size: xx-large;
 }
 a#ProfileLink{
-    display: block;
-}
-
-p#ProfileName{
+    width: 100%;
+    align-items: center;
+    justify-content: space-between;
+    display: flex;
+    flex-direction: row;
     margin: 0;
 }
+
+#ProfileName{
+    font-family: 'Rubik Iso', cursive;
+    margin: 0;
+    margin-left: 20px;
+    margin-right: -40px;
+}
+#ProfilePicture{
+    width: 75px;
+    height: 75px;
+    margin: 20px;
+    border: 2px solid green;
+}
+#SiteName{
+    font-size: 75px;
+    flex-grow: 10;
+    margin: auto;
+    text-align: center;
+}
+
+.colorBorder{
+    display: block;
+    position: relative;
+    /* justify-items: center; */
+    margin: auto;
+    margin-bottom: 20px;
+    width: 60%;
+    border: 3px solid var(--primary);
+    box-shadow: 10px -10px 0 -3px var(--background), 10px -10px var(--green);
+}
+.colorBorder:hover{
+    animation: wave 1s ease infinite;
+    cursor: default;
+}
+
+.answer{
+    width: 40%;
+}
+
+.colorBorder .QuestionPicture{
+    display: block;
+    margin: auto;
+    width: 100%;
+    height: 100%;
+}
+.maxWidth{
+    width: 100%;
+}
+.colorBorder > *{
+    display: block;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    background-color: var(--background);
+}
+
+.colorBorder input[type="radio"] {
+    display: block;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    opacity: 0.00;
+    cursor: pointer;
+    z-index: 100;
+}
+.colorBorder .radio{
+    opacity: 0;
+    position: relative;
+    display: block;
+    z-index: auto;
+}
+
+.colorBorder input[type="radio"]:checked+label,
+.Checked+label {
+  animation: wave 1s ease infinite;
+}
+.colorBorder label {
+    display: block;
+    margin: auto;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    z-index: 90;
+    text-align: center;
+  }
+  .colorBorder .radioLabel{
+    display: inline-block !important;
+    position: relative !important;
+    background-color: #ddd;
+    padding: 10px 20px;
+    font-family: sans-serif, Arial;
+    font-size: 16px;
+    border: 2px solid #444;
+    border-radius: 4px;
+}
+
+  @keyframes wave {
+    0% {
+      border: 3px solid var(--primary);
+      box-shadow: 10px -10px 0 -3px var(--background), 10px -10px var(--red);
+    }
+    20% {
+      border: 3px solid var(--red);
+      box-shadow: 10px -10px 0 -3px var(--background), 10px -10px var(--orange);
+    }
+    40% {
+      border: 3px solid var(--orange);
+      box-shadow: 10px -10px 0 -3px var(--background), 10px -10px var(--yellow);
+    }
+    60% {
+      border: 3px solid var(--yellow);
+      box-shadow: 10px -10px 0 -3px var(--background), 10px -10px var(--green);
+    }
+    80% {
+      border: 3px solid var(--green);
+      box-shadow: 10px -10px 0 -3px var(--background), 10px -10px var(--primary);
+    }
+    100% {
+      border: 3px solid var(--primary);
+      box-shadow: 10px -10px 0 -3px var(--background), 10px -10px var(--green);
+    }
+    
+  }
+.hover-underline-animation {
+    font-family: 'Rubik Iso', cursive;
+    display: inline-block;
+    position: relative;
+    color: #0087ca;
+  }
+  
+  .hover-underline-animation::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    transform: scaleX(0);
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: #0087ca;
+    transform-origin: bottom right;
+    transition: transform 0.25s ease-out;
+  }
+  
+  .hover-underline-animation:hover::after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+  }
+
+  :root {
+    --primary: #22D2A0;
+    --secondary: #192824;
+    --background: #40128B;
+    --green: #1FC11B;
+    --yellow: #FFD913;
+    --orange: #FF9C55;
+    --red: #FF5555;
+  } 

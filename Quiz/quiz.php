@@ -1,5 +1,6 @@
 <?php
-include "../Operations/classLoader.php";
+    include '../Operations/classLoader.php';
+    include '../Operations/dbFunctionsShortcut.php';
 $connection = mysqli_connect('localhost','root','root','ProjektPHP');
 if(isset($_POST['quizId'])) $_SESSION['quizId'] = $_POST['quizId'];
 
@@ -12,11 +13,16 @@ $result = mysqli_query($connection,$query);
 
 function answerPrinter($answer, $number){
     if(!empty($answer)){
-        echo '<input type="radio" name="answer" id=""';
+        echo '<div class="colorBorder answer">';
+        echo '<input type="radio" name="answer""';
+        echo 'id="';
+        echo $number;
+        echo '"';
         echo 'value="';
         echo $number;
-        echo '">';
-        echo $answer.'<br>';
+        echo '" class="radio">';
+        echo '<label for="'.$number.'">'.$answer.'</label><br>';
+        echo '</div>';
     }
 }
 while($row[] = mysqli_fetch_array($result));
@@ -32,13 +38,17 @@ if(empty($_SESSION['currentQuestion']) && empty($_SESSION['score'])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Rubik+Iso&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../CSS/style1.css">
+    <link rel="stylesheet" href="../CSS/border.css">
     <title>Quuiiiizzz</title>
 </head>
 <body>    
     <div class="box">
         <div class="header">
-            <!-- <h1>hjvhjvvhj</h1> -->
+            <?php
+            include '../User/headerProfile.php';
+            ?>
         </div>
         <div class="section">
             <?php
@@ -54,32 +64,45 @@ if(empty($_SESSION['currentQuestion']) && empty($_SESSION['score'])) {
                 if($i == $_SESSION['numberOfQuestions']){
                     header('Location: quizScore.php');
                 }
-
+                echo '<div class="colorBorder">';
                 echo '<h1>'.$quiz['nazwa'].'</h1>';
                 echo '<h2>Punkty: '.$_SESSION['score'].'</h2>';
-
+                echo '</div>';
                     if($row[$i]['typ_pytania']==1){
                         echo '<form action="quiz.php" method="post">';
+                        echo '<div class="colorBorder">';
                         echo '<h3>'.$row[$i]['pytanie'].'</h3>';
+                        echo '</div>';
                         answerPrinter($row[$i]['odp1'],1);
                         answerPrinter($row[$i]['odp2'],2);
                         answerPrinter($row[$i]['odp3'],3);
                         answerPrinter($row[$i]['odp4'],4);
+                        echo '<div class="colorBorder">';
                         echo '<input type="submit" name="submit" value="Następne pytanie">';
                         echo '</form>';
+                        echo '</div>';
 
                     }
                     elseif($row[$i]['typ_pytania']==2){
                         echo '<form action="quiz.php" method="post">';
+                        echo '<div class="colorBorder">';
                         echo '<h3>'.$row[$i]['pytanie'].'</h3>';
+                        echo '</div>';
+                        echo '<div class="colorBorder">';
                         echo '<img src="../uploads/';
                         echo $row[$i]['obrazek'];
-                        echo '" alt="" width="500" height="400"><br>';
-                        echo '<input type="text" name="answer" placeholder="Odpowiedź">';
+                        echo '" alt="" class="QuestionPicture">';
+                        echo '</div>';
+                        echo '<div class="colorBorder">';
+                        echo '<input type="text" name="answer" class="TextInput" placeholder="Odpowiedź">';
+                        echo '</div>';
+                        echo '<div class="colorBorder">';
                         echo '<input type="submit" name="submit" value="Następne pytanie">';
                         echo '</form>';
+                        echo '</div>';
 
                     }
+                    
                     if(!empty($_POST['submit'])){
                         echo $_POST['answer'];
                         if(strtolower($_POST['answer']) == $row[$i]['poprawna_opd']) $_SESSION['score']++;
@@ -87,6 +110,7 @@ if(empty($_SESSION['currentQuestion']) && empty($_SESSION['score'])) {
                         header('Location: quiz.php');
                         exit();
                     }
+                    
                 ?>
             </div>
         </div>
