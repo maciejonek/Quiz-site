@@ -36,7 +36,7 @@ include '../Operations/dbFunctionsShortcut.php';
                         $query = "SELECT * FROM kategorie;";
                         $result = mysqli_query($connection, $query);
                         while ($row = mysqli_fetch_array($result)) {
-                            echo '<option value="' . $row['nazwa'] . '">' . $row['nazwa'] . '</option>';
+                            echo '<option value="' . $row['nazwa'] . '">' . strtoupper($row['nazwa']) . '</option>';
                         }
                         ?>
                     </select>

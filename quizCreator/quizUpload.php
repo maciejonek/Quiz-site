@@ -25,9 +25,9 @@
             ?>
             <div class="info">
                 <div>
-                    <p>Twój quiz został dodany!</p>
+                    <p class="borderSmall">Twój quiz został dodany!</p>
                     <form action="../index/index.php" method="post">
-                        <input type="submit" value="Wróć na stronę główną">
+                        <input type="submit" value="Wróć na stronę główną" class="submit">
                     </form>
                 </div>
                 <?php

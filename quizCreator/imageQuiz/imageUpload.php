@@ -14,22 +14,12 @@ if(isset($_POST['submit']) && !empty($_FILES['file']['name']) && !empty($_POST['
             if($insert){
                 $question = new \Classes\imageQuiz($_POST['question'],$fileName,strtolower($_POST['answer']));
                 $_SESSION['questions'][] = serialize($question);
-                $statusMsg = "The file ".$fileName. " has been uploaded successfully.";
                 header("Location: quizCreator.php");
                 exit();
-            }else{
-                $statusMsg = "File upload failed, please try again.";
             }
-        }else{
-            $statusMsg = "Sorry, there was an error uploading your file.";
         }
-    }else{
-        $statusMsg = 'Sorry, only JPG, JPEG, PNG, GIF, & PDF files are allowed to upload.';
     }
-}else{
-    $statusMsg = 'Please select a file to upload.';
 }
 
-echo $statusMsg;
 ?>
 

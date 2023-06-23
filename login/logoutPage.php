@@ -26,7 +26,7 @@ include '../Operations/dbFunctionsShortcut.php';
             ?>
             <div class="info">
                 <form action="logoutPage.php" method="post">
-                    <input type="submit" name="logout" value="Wyloguj">
+                    <input type="submit" name="logout" value="Wyloguj" class="colorBorder changeBackground" style="margin-top: 150px;">
                 </form>
                 <?php
                 if(isset($_POST['logout'])){

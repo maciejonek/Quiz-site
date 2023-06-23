@@ -2,7 +2,7 @@
     include '../Operations/classLoader.php';
     include '../Operations/dbFunctionsShortcut.php';
 
-    if(!isset($_SESSION['questions'])){
+    if(empty($_SESSION['questions'])){
         $_SESSION['questions'] = array();
     }
 ?>
@@ -31,23 +31,28 @@
                 include '../Operations/checkLogin.php';
                 ?>
 
-                <div class="info" style="width: 80%;">
+                <div class="info infoCreator">
+                    <div id="Creator">
 
-                <button id="returnButton" onclick="history.go(-1);"><< </button>
+                        <button id="returnButton" onclick="history.go(-1);"><< </button>
 
-                <form action="quizUpload.php">
-                    <input type="submit" class="submit" value="Zapisz Quiz">
-                </form>
-                    
-                <?php
-                    echo '<br>';
-                    echo "<p class='colorBorder' style='text-align: center;'>ilosc pytań: ".sizeof($_SESSION['questions'])."</p><br>";
-                    include "../quizCreator/radioQuiz/radioQuizForm.html";
-                    include "../quizCreator/imageQuiz/imageQuizForm.html";
-                    include "../quizCreator/radioQuiz/radioQuiz.php";
-                    include "../quizCreator/imageQuiz/imageUpload.php";
+                        <form action="quizUpload.php">
+                            <input type="submit" class="submit" value="Zapisz Quiz">
+                        </form>
 
-                ?>
+                        <?php
+                            echo '<br>';
+                            echo "<p class='colorBorder' style='text-align: center;'>Ilość pytań ".sizeof($_SESSION['questions'])."</p><br>";
+                            echo '<table class="formsTable"><tr><td>';
+                            include "../quizCreator/radioQuiz/radioQuiz.php";
+                            include "../quizCreator/imageQuiz/imageUpload.php";
+                            include "../quizCreator/radioQuiz/radioQuizForm.html";
+                            echo '</td><td>';
+                            include "../quizCreator/imageQuiz/imageQuizForm.html";
+                            echo '</td></tr></table>';
+
+                        ?>
+                    </div>
             </div>
         </div>
         <div class="footer">

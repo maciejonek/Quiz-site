@@ -37,7 +37,7 @@ $result = mysqli_query($connection,$query);
                     while($row = mysqli_fetch_array($result)){
                         echo '<form action="quizList.php" method="get">';
                         echo '<li><input type="hidden" name="category" value="'.$row['nazwa'].'">';
-                        echo '<input type="submit" class="submit" value="'.$row['nazwa'].'">'.'</li>';
+                        echo '<input type="submit" class="submit" value="'.strtoupper($row['nazwa']).'">'.'</li>';
                         echo '</form>';
                     }
                     ?>

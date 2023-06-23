@@ -15,6 +15,8 @@ while($row = mysqli_fetch_array($result)){
     echo '</form>';
 }
 if(isset($_POST['delete'])){
+    $query = "DELETE FROM assocUsersQuizy WHERE id_quiz='{$_POST['toDelete']}'";
+    mysqli_query($connection,$query);
     $query = "DELETE FROM pytania WHERE id_quiz='{$_POST['toDelete']}'";
     mysqli_query($connection,$query);
     $query = "DELETE FROM quizy WHERE id='{$_POST['toDelete']}'";

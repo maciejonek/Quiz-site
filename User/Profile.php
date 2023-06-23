@@ -35,15 +35,18 @@ include '../Operations/dbFunctionsShortcut.php';
                 include 'operations/xmlSave.php';
             ?>
             <h1></h1>
-            <img src="../uploads/<?php echo $user->picture?>"  width="300" height="300">
+            <img src="../uploads/<?php echo $user->picture?>"  class="colorBorder" width="30%" height="50%">
             <form action="Profile.php" method="post" enctype="multipart/form-data">
-                <input type="file" name="file">
+                <div class="colorBorder">
+                <input type="file" name="file" id="inputFile" >
                 <input type="submit" name="submit" value="Wgraj">
+                </div>
             </form>
+            <div class="colorBorder">
             <h2>Punkty: <?php echo $score ?></h2>
             <h2>Rozwiązane quizy: <?php echo resultRows($query)?></h2>
-            <p><a href="operations/download.php?file=achievements.xml"><button type="button">Pobierz wyniki</button></a></p>
-
+            <p><a href="operations/download.php?file=achievements.xml"><button type="button" class="submit">Pobierz wyniki</button></a></p>
+            </div>
             <?php
                 
             ?>

@@ -25,10 +25,18 @@ echo '</form>';
 echo '</table>';
 
 if(isset($_POST['delete'])){
-    $query = "DELETE FROM quizy WHERE nazwa='{$_POST['toDelete']}'";
-    mysqli_query($connection,$query);
+    $query = "SELECT * FROM quizy WHERE kategoria = '{$_POST['toDelete']}'";
+    $result = executeQuery($query);
+    while($row = mysqli_fetch_array($result)){
+        $query = "DELETE FROM assocUsersQuizy WHERE id_quiz='{$row['id']}'";
+        executeQuery($query);
+        $query = "DELETE FROM pytania WHERE id_quiz='{$row['id']}'";
+        executeQuery($query);
+    }
+    $query = "DELETE FROM quizy WHERE kategoria='{$_POST['toDelete']}'";
+    executeQuery($query);
     $query = "DELETE FROM kategorie WHERE nazwa='{$_POST['toDelete']}'";
-    mysqli_query($connection,$query);
+    executeQuery($query);
     header('Location: controlPanel.php');
     exit();
 }

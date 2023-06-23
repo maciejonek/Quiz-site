@@ -1,7 +1,7 @@
 <?php
 include '../Operations/classLoader.php';
-include '../Operations/sessionClear.php';
 include '../Operations/dbFunctionsShortcut.php';
+error_reporting(E_ALL ^ E_WARNING);
 ?>
 <!DOCTYPE html>
 <html lang="en">

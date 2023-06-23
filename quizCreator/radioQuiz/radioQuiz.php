@@ -21,7 +21,6 @@ if(issetQuestionAndCorrectAnswer()){
         if(isset($_POST['answer4'])){
             $radioQuiz -> setAnswer4($_POST['answer4']);
         }
-
         $_SESSION['questions'][] = serialize($radioQuiz);
         header("Location: quizCreator.php");
         exit();
